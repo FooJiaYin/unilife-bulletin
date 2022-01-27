@@ -1,0 +1,23 @@
+# yarn
+node_modules
+package-lock.json
+yarn-error.log
+yarn.lock
+
+.DS_Store
+dist
+dist-ssr
+*.local
+
+# firebase
+.firebase
+.firebaserc
+firebase.*
+firestore.*
+storage.rules
+firebase-debug.log
+src/config.js
+functions/
+
+# vscode
+.vscode

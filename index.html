@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US" class="" data-skin="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>台北 - 在地活動公佈欄</title>
+    <link href="https://fonts.googleapis.com/css?family=Manrope%3A%2C400%2C700%2C900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css"
+        integrity="sha384-DmABxgPhJN5jlTwituIyzIUk6oqyzf3+XuP7q3VfcWA2unxgim7OSSZKKf0KSsnh" crossorigin="anonymous">
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='etn-public-css' href='/src/assets/css/event-manager-public.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel='stylesheet' id='courselog-style-css' href='/src/assets/css/master.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='style-css' href='/src/assets/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='iconfont-css' href='/src/assets/css/iconfont.css' type='text/css' media='all' />
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <style id='etn-custom-css-inline-css' type='text/css'>
+        .etn-event-single-content-wrap .etn-event-meta .etn-event-category span,
+        .etn-event-item .etn-event-footer .etn-atend-btn .etn-btn-border,
+        .etn-btn.etn-btn-border,
+        .attr-btn-primary.etn-btn-border,
+        .etn-attendee-form .etn-btn.etn-btn-border,
+        .etn-ticket-widget .etn-btn.etn-btn-border,
+        .etn-settings-dashboard .button-primary.etn-btn-border,
+        .etn-single-speaker-item .etn-speaker-content a:hover,
+        .etn-event-style2 .etn-event-date,
+        .etn-event-style3 .etn-event-content .etn-title a:hover,
+        .event-tab-wrapper ul li a.etn-tab-a,
+        .etn-speaker-item.style-3:hover .etn-speaker-content .etn-title a,
+        .etn-event-item:hover .etn-title a {
+            color: #5D78FF;
+        }
+
+        .etn-event-item .etn-event-category span,
+        .etn-btn,
+        .attr-btn-primary,
+        .etn-attendee-form .etn-btn,
+        .etn-ticket-widget .etn-btn,
+        .schedule-list-1 .schedule-header,
+        .speaker-style4 .etn-speaker-content .etn-title a,
+        .etn-speaker-details3 .speaker-title-info,
+        .etn-event-slider .swiper-pagination-bullet,
+        .etn-speaker-slider .swiper-pagination-bullet,
+        .etn-event-slider .swiper-button-next,
+        .etn-event-slider .swiper-button-prev,
+        .etn-speaker-slider .swiper-button-next,
+        .etn-speaker-slider .swiper-button-prev,
+        .etn-single-speaker-item .etn-speaker-thumb .etn-speakers-social a,
+        .etn-event-header .etn-event-countdown-wrap .etn-count-item,
+        .schedule-tab-1 .etn-nav li a.etn-active,
+        .schedule-list-wrapper .schedule-listing.multi-schedule-list .schedule-slot-time,
+        .etn-speaker-item.style-3 .etn-speaker-content .etn-speakers-social a,
+        .event-tab-wrapper ul li a.etn-tab-a.etn-active,
+        .etn-btn,
+        button.etn-btn.etn-btn-primary,
+        .etn-schedule-style-3 ul li:before,
+        .etn-default-calendar-style .fc-ltr .fc-basic-view .fc-day-top .fc-state-highlight,
+        .etn-zoom-btn,
+        .etn-default-calendar-style .fc-button,
+        .etn-settings-dashboard .button-primary {
+            background-color: #5D78FF;
+        }
+
+        .etn-event-item .etn-event-footer .etn-atend-btn .etn-btn-border,
+        .etn-btn.etn-btn-border,
+        .attr-btn-primary.etn-btn-border,
+        .etn-attendee-form .etn-btn.etn-btn-border,
+        .etn-ticket-widget .etn-btn.etn-btn-border,
+        .event-tab-wrapper ul li a.etn-tab-a,
+        .event-tab-wrapper ul li a.etn-tab-a.etn-active,
+        .etn-schedule-style-3 ul li:after,
+        .etn-default-calendar-style .fc-ltr .fc-basic-view .fc-day-top.fc-today .fc-day-number,
+        .etn-settings-dashboard .button-primary.etn-btn-border {
+            border-color: #5D78FF;
+        }
+
+        .schedule-tab-wrapper .etn-nav li a.etn-active,
+        .etn-speaker-item.style-3 .etn-speaker-content {
+            border-bottom-color: #5D78FF;
+        }
+
+        .schedule-tab-wrapper .etn-nav li a:after,
+        .etn-event-list2 .etn-event-content,
+        .schedule-tab-1 .etn-nav li a.etn-active:after {
+            border-color: #5D78FF transparent transparent transparent;
+        }
+
+        .etn-default-calendar-style .etn-has-event a,
+        .etn-default-calendar-style table tbody>tr:nth-child(2n)>td.etn-has-event a,
+        .etn-default-calendar-style table tbody>tr:nth-child(odd)>td.etn-has-event a {
+            background-color: #5D78FF1A;
+        }
+
+
+        .etn-event-item .etn-event-location,
+        .etn-event-tag-list a:hover,
+        /* .etn-schedule-wrap .etn-schedule-info .etn-schedule-time {
+            color: ;
+        }
+
+        .etn-event-tag-list a:hover {
+            border-color: ;
+        } */
+
+        .etn-btn:hover,
+        .attr-btn-primary:hover,
+        .etn-attendee-form .etn-btn:hover,
+        .etn-ticket-widget .etn-btn:hover,
+        .speaker-style4 .etn-speaker-content p,
+        .etn-btn,
+        button.etn-btn.etn-btn-primary:hover,
+        .etn-zoom-btn,
+        .etn-speaker-item.style-3 .etn-speaker-content .etn-speakers-social a:hover,
+        .etn-single-speaker-item .etn-speaker-thumb .etn-speakers-social a:hover,
+        .etn-default-calendar-style .fc-button:hover,
+        /* .etn-settings-dashboard .button-primary:hover {
+            background-color: ;
+        } */
+    </style>
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+
+</html>

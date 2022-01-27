@@ -1,0 +1,23 @@
+{
+  "name": "unilife-bulletin",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "deploy": "vite build && firebase deploy"
+  },
+  "dependencies": {
+    "firebase": "^9.6.4",
+    "moment": "^2.29.1",
+    "swiper": "^7.4.1",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "vite": "^2.7.2"
+  }
+}
