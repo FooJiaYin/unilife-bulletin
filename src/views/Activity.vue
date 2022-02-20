@@ -100,33 +100,36 @@
                                         <li> <i class="fas fa-calendar-alt"></i>日期<span>{{ data.bulletinMeta.date }}</span></li>
                                         <li> <i class="fas fa-map-marker-alt"></i>地點<span class="ellipsis">{{ data.bulletinMeta.address }}</span></li>
                                         <li> <i class="fas fa-user"></i>主辦單位<span>{{ data.bulletinMeta.organization }}</span></li>
+                                        <li> <i class="fas fa-fire"></i>關注度<span>{{ data.bulletinMeta.popularity }}</span></li>
                                     </ul>
 
                                 </div>
 
                                 <div class="meta-block">
                                 </div>
-                                <div class="meta-block social-share">
+                                <!-- <div class="meta-block social-share">
                                     <h4>關注度</h4>
                                     <div
                                         class="xs_social_share_widget xs_share_url  		main_content  wslu-style-1 wslu-share-box-shaped wslu-fill-colored wslu-none wslu-share-horizontal wslu-theme-font-no wslu-main_content">
                                         <ul>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="course-enroll">
-
-
                                     <form name="enroll-course" class="enroll-course" method="post"
                                         enctype="multipart/form-data">
                                         <input type="hidden" name="enroll-course" value="41" />
                                         <div class="row">
                                             <div class="col">
-                                                <button class="lp-button button button-enroll-course">立即報名</button>
+                                                <a :href="data.bulletinMeta.registrationLink" target="_blank">
+                                                    <div class="lp-button button button-enroll-course text-center">立即報名</div>
+                                                </a>
                                             </div>
                                             <div class="col">
-                                                <button class="lp-button button button-enroll-course">加入行事曆</button>
+                                                <a :href="data.bulletinMeta.calendarLink" target="_blank">
+                                                    <div class="lp-button button button-enroll-course text-center">加入行事曆</div>
+                                                </a>
                                             </div>
                                         </div>
                                     </form>
