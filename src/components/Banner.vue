@@ -20,6 +20,7 @@ export default {
 
 <style>
     .banner-area.banner-bg {
-        background-image: url(../assets/images/banner/taipei.jpg);
+        /* background-image: url(../assets/images/banner/taipei.jpg); */
+        background-image: url(http://i.imgur.com/C7uD6QY.jpg);
     }
 </style>

@@ -51,7 +51,7 @@
                 <div class="etn-col-lg-8">
                     <div class="etn-event-single-content-wrap">
                     <h2 class="mb-5">{{data.title}}</h2>
-                        <div v-if="data.images.src" class="etn-single-event-media">
+                        <div v-if="data.images && data.images.src" class="etn-single-event-media">
                             <img :src="data.images.src">
                         </div>
                         <div class="etn-event-content-body">
