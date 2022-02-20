@@ -34,7 +34,7 @@
                     item.id = doc.id
                     this.activitiesFeatured.push(item)
                 });
-                querySnapshot = await getList("activity", '徵才資訊', 'bulletinMeta.popularity', 6);
+                querySnapshot = await getList("activity", undefined, 'bulletinMeta.popularity', 6);
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     console.log(item)
@@ -66,7 +66,7 @@
     <div id="home"
         class="archive post-type-archive post-type-archive-lp_course courselog-child learnpress learnpress-page sidebar-active elementor-default elementor-kit-8">
 
-        <Banner title="台北市" />
+        <Banner title="新竹縣" />
 
         <div id="main-content" class="main-container archive-course-container archive-course-standard" role="main">
             <div class="tranding-course-slider">

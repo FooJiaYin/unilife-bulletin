@@ -1,5 +1,5 @@
 import moment from 'moment'
-import localization from "moment/locale/zh-cn"
+// import localization from "moment/locale/zh-cn"
 moment.locale('zh-tw', {
     longDateFormat: {
         LL: 'YYYY 年 M 月 D 日',
@@ -15,7 +15,7 @@ moment.locale('zh-tw', {
         d: '1 天',
         dd: '%d 天',
         M: '1 個月',
-        MM: '%d 个月',
+        MM: '%d 個月',
         y: '1 年',
         yy: '%d 年'
     },
@@ -34,7 +34,7 @@ class Time {
     //     return firebase.firestore.Timestamp.fromDate(this.now.toDate())
     // }
     calendar = (args) => this.now.calendar(args)
-    format = (args) => this.now.locale('zh-cn', localization).format(args)
+    format = (args) => this.now.locale('zh-tw').format(args)
     getNextDayofWeek = (dayofWeek, hours) => {
         // if we haven't yet passed the day of the week that I need:
         if (this.now.day() <= dayofWeek) { 
