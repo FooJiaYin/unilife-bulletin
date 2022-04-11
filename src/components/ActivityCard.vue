@@ -53,7 +53,7 @@
                     </div><!-- ./lesson -->
                     <div class="cl-button">
                         <router-link :to="`/${data.community}/activity/${data.id}`" class="btn-details btn-link">
-                            立即報名
+                            查看更多
                             <i class="fas fa-arrow-right"></i>
                         </router-link>
                     </div>

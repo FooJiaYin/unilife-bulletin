@@ -66,8 +66,8 @@
 
                         <div class="etn-event-tag-list">
                             <h4 class="etn-tags-title">分類</h4>
-                            <router-link v-for="tag in data.tags" :key="tag" :to="'/announcements/tag/' + tag">
-                                {{ tag }}
+                            <router-link v-for="tag in data.tags" :key="tag" :to="`/${data.community}/announcements/tag/${tag}`">
+                                {{ tag.replace("important", "重要公告") }}
                             </router-link>
                         </div>
                     </div>

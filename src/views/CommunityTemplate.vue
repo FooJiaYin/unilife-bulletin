@@ -27,6 +27,6 @@ export default {
 </script>
 
 <template>
-    <Navbar />
+    <Navbar :community="community" />
     <router-view :community="community" />
 </template>

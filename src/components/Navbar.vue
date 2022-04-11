@@ -14,11 +14,12 @@ export default {
             <div class="navbar-container">
                 <div class="container">
                     <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
-                        <footer-link to="/" class="navbar-brand">
-                            <img src="../assets/images/logo.png"
+                        <router-link :to="`/${community.id}`" class="navbar-brand">
+                            <!-- <img src="../assets/images/logo.png"
                                 srcset="../assets/images/logo.png 1x"
-                                alt="UniLife">
-                        </footer-link>
+                                alt="UniLife"> -->
+                            <h4 class="pt-3 text-gray">{{ community.name }}活動公佈欄</h4>
+                        </router-link>
     
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-nav"
                             aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">

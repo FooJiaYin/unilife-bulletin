@@ -16,7 +16,13 @@
                 this.data = await getItem("articles", this.id)
                 this.data.bulletinMeta.date = Time(this.data.bulletinMeta.date.toDate()).format('LL')
                 this.items = []
-                const querySnapshot = await getList("activity", this.data.tags[0], 'bulletinMeta.popularity', 3);
+                const querySnapshot = await getList(
+                    "activity", 
+                    this.data.community,
+                    this.data.tags[0], 
+                    'bulletinMeta.popularity', 
+                    3
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     item.id = doc.id
@@ -44,14 +50,14 @@
                         <div class="content-area">
                             <div class="course-breadcumb">
                                 <ol class="breadcrumb" data-wow-duration="2s">
-                                    <li><router-link to="/">首頁</router-link></li> <i
+                                    <li><router-link :to="`/${data.community}`">首頁</router-link></li> <i
                                         class="fas fa-chevron-right"></i>
-                                    <li><router-link to="/activities">活動</router-link></li> <i class='fas fa-chevron-right'></i>
+                                    <li><router-link :to="`/${data.community}/announcements/tag/${tag}`">活動</router-link></li> <i class='fas fa-chevron-right'></i>
                                     <li class="ellipsis">{{ data.title }}</li>
                                 </ol>
                             </div>
                             <div class="meta-list">
-                                <router-link v-for="tag in data.tags" :to="'/activities/tag/' + tag" :key="tag">{{ tag }}</router-link>
+                                <router-link v-for="tag in data.tags" :to="`/${data.community}/activities/tag/${tag}`" :key="tag">{{ tag }}</router-link>
                             </div>
                             <h2 class="banner-title">{{ data.title }}</h2>
                             <p class="course-intro">{{ data.meta.abstract }}</p>
@@ -123,7 +129,7 @@
                                         <div class="row">
                                             <div class="col">
                                                 <a :href="data.bulletinMeta.registrationLink" target="_blank">
-                                                    <div class="lp-button button button-enroll-course text-center">立即報名</div>
+                                                    <div class="lp-button button button-enroll-course text-center">活動網頁</div>
                                                 </a>
                                             </div>
                                             <div class="col">

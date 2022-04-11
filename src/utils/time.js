@@ -5,7 +5,7 @@ moment.locale('zh-tw', {
         LL: 'YYYY 年 M 月 D 日',
     },
     relativeTime: {
-        future: '%s内',
+        future: '%s內',
         past: '%s前',
         s: '幾秒',
         m: '1 分鐘',
