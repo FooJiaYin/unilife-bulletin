@@ -4,7 +4,7 @@
     import Time from '../utils/time'
     export default {
         components: { ActivityCard },
-        props: ['id'],
+        props: ['id', 'community'],
         data: function() {
             return {
                 data: {},

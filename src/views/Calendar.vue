@@ -4,6 +4,7 @@ import { getList } from "../firebase";
 
 export default {
 	components: { Banner },
+  props: ["community"],
 	data: function () {
 		const month = new Date().getMonth();
 		const year = new Date().getFullYear();
@@ -20,6 +21,7 @@ export default {
 			this.items = [];
 			const querySnapshot = await getList(
 				"activity",
+        this.community.id,
 				this.tag,
 				this.order,
 				this.limit
@@ -39,6 +41,11 @@ export default {
 	created: function () {
 		this.loadData();
 	},
+  watch: {
+    community: function () {
+      this.loadData();
+    },
+  },
 };
 </script>
 
@@ -59,7 +66,7 @@ export default {
           <div class="flex-grow overflow-y-auto overflow-x-hidden">
 			<a v-for="attr in attributes"
 				:key="attr.key" 
-				:href="'/activity/' + attr.customData.id">
+				:href="`/${attr.customData.community}/activity/${attr.customData.id}`">
 				<p class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1" :class="attr.class">
 					{{ attr.customData.title }}
 				</p>

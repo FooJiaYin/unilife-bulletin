@@ -4,7 +4,7 @@
     import { getList } from '../firebase'
     export default {
         components: { Banner, AnnouncementCard },
-        props: ['tag'],
+        props: ['community', 'tag'],
         data: function() {
             return {
                 items: [],
@@ -25,7 +25,14 @@
         methods: {
             loadData: async function() {
                 this.items = []
-                const querySnapshot = await getList("announcement", this.tag, this.order, this.limit, this.limit * this.page);
+                const querySnapshot = await getList(
+                    "announcement", 
+                    this.community.id, 
+                    this.tag, 
+                    this.order, 
+                    this.limit, 
+                    this.limit * this.page
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     item.id = doc.id
@@ -38,7 +45,9 @@
         },
         watch: {
             tag: function() {
-                console.log(this.tag)
+                this.loadData()
+            },
+            community: function() {
                 this.loadData()
             }
         }
@@ -67,10 +76,10 @@
                             <div class="course-list-widget-wraper show-more-wraper">
                                 <ul class="course-list-widget show-more-list">
                                     <li class="first_item" :class="{ active: tag === undefined }">
-                                        <router-link to="/announcements">所有公告</router-link>
+                                        <router-link :to="`/${community.id}/announcements`">所有公告</router-link>
                                     </li>
                                     <li v-for="_tag in tags" :key="_tag" :class="{ active: tag === _tag}">
-                                        <router-link :to="'/announcements/tag/' + _tag">{{ _tag }}</router-link>
+                                        <router-link :to="`/${community.id}/announcements/tag/${_tag}`">{{ _tag.replace("important", "重要公告") }}</router-link>
                                     </li>
                                 </ul>
                                 <div class="gradient_shade_area"></div>

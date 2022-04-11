@@ -4,7 +4,7 @@
     import { getList } from '../firebase'
     export default {
         components: { Banner, ActivityCard },
-        props: ['tag'],
+        props: ['community', 'tag'],
         data: function() {
             return {
                 items: [],
@@ -27,7 +27,13 @@
         methods: {
             loadData: async function(page = 0) {
                 this.items = []
-                const querySnapshot = await getList("activity", this.tag, this.order, this.limit);
+                const querySnapshot = await getList(
+                    "activity", 
+                    this.community.id, 
+                    this.tag, 
+                    this.order, 
+                    this.limit
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     item.id = doc.id
@@ -39,7 +45,14 @@
                 if (page < this.page) 
                 this.page = page
                 this.items = []
-                const querySnapshot = await getList("activity", this.tag, this.order, this.limit, page);
+                const querySnapshot = await getList(
+                    "activity", 
+                    this.community.id,
+                    this.tag, 
+                    this.order, 
+                    this.limit, 
+                    page
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     item.id = doc.id
@@ -54,9 +67,9 @@
         watch: {
             tag: function() {
                 if (this.tag == undefined) {
-                    this.$router.push('/activities')
+                    this.$router.push(`/${this.community.id}/activities`)
                 } else {
-                    this.$router.push("/activities/tag/" + this.tag);
+                    this.$router.push(`/${this.community.id}/activities/tag/${this.tag}`);
                 }
                 this.loadData()
             },
@@ -66,6 +79,9 @@
             page: function() {
                 this.loadData()
             },
+            community: function() {
+                this.loadData()
+            }
         }
     }
 </script>

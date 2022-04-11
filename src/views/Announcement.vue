@@ -16,7 +16,13 @@
                 this.data = await getItem("articles", this.id)
                 this.data.publishedAt = Time(this.data.publishedAt.toDate()).format('LL')
                 this.items = []
-                const querySnapshot = await getList("announcement", this.data.tags[0], "publishedAt", 3);
+                const querySnapshot = await getList(
+                    "announcement", 
+                    this.data.community,
+                    this.data.tags[0], 
+                    "publishedAt", 
+                    3
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     console.log(item)
@@ -41,9 +47,9 @@
         <div class="etn-container">
             <div class="course-breadcumb">
                 <ol class="breadcrumb" data-wow-duration="2s">
-                    <li><router-link to="/">首頁</router-link></li> <i
+                    <li><router-link :to="`/${data.community}`">首頁</router-link></li> <i
                         class="fas fa-chevron-right"></i>
-                    <li><router-link to="/announcements">公告</router-link></li> <i class='fas fa-chevron-right'></i>
+                    <li><router-link :to="`/${data.community}/announcements`">公告</router-link></li> <i class='fas fa-chevron-right'></i>
                     <li class="ellipsis">{{ data.title }}</li>
                 </ol>
             </div>

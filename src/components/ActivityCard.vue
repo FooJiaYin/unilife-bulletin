@@ -18,12 +18,12 @@
     <div class="single-course owl-item">
         <div class="single-course-wrap">
             <div class="course-thumb">
-                <router-link :to="'/activity/' + data.id">
+                <router-link :to="`/${data.community}/activity/${data.id}`">
                     <!-- <img class="img-fluid" src="" alt="Sample course"> -->
                     <img class="img-fluid entered" :src="data.images.src" :alt="data.title">
                 </router-link>
                 <div class="meta-list">
-                    <router-link v-for="tag in data.tags" :to="'/activities/tag/' + tag" :key="tag">{{ tag }}</router-link>
+                    <router-link v-for="tag in data.tags" :to="`/${data.community}/activities/tag/${tag}`" :key="tag">{{ tag }}</router-link>
                 </div><!-- ./meta-list -->
             </div>
 
@@ -35,7 +35,7 @@
                     </ul>
                 </div>
                 <h3 class="ts-course-el-title">
-                    <router-link :to="'/activity/' + data.id">
+                    <router-link :to="`/${data.community}/activity/${data.id}`">
                         {{ data.title }}
                     </router-link>
                 </h3>
@@ -52,7 +52,7 @@
                         <i class="fas fa-fire mr-2"></i><span>{{ data.bulletinMeta.popularity }}</span>
                     </div><!-- ./lesson -->
                     <div class="cl-button">
-                        <router-link :to="'/activity/' + data.id" class="btn-details btn-link">
+                        <router-link :to="`/${data.community}/activity/${data.id}`" class="btn-details btn-link">
                             立即報名
                             <i class="fas fa-arrow-right"></i>
                         </router-link>

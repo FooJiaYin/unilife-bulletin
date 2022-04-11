@@ -13,8 +13,8 @@ async function getQuery(collectionName, filters = {}) {
     return q
 }
 
-export async function getList(type, tag, order="bulletinMeta.popularity", limitNo, startNo=0) {
-    let q = query(collection(db, "articles"), where("community", "==", "hsinchuCounty"), where("bulletinMeta.type", "==", type))
+export async function getList(type, community, tag, order="bulletinMeta.popularity", limitNo, startNo=0) {
+    let q = query(collection(db, "articles"), where("community", "==", community), where("bulletinMeta.type", "==", type))
     if (tag) q = query(q, where('tags', 'array-contains', tag))
     if (order == 'bulletinMeta.date') {
         q = query(q, orderBy(order, "asc"), limit(limitNo))
