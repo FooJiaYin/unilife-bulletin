@@ -13,6 +13,7 @@
     "swiper": "^7.4.1",
     "v-calendar": "^3.0.0-alpha.8",
     "vue": "^3.2.25",
+    "vue-meta": "^3.0.0-alpha.10",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
   },

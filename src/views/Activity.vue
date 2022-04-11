@@ -1,4 +1,5 @@
 <script>
+    import { useMeta } from 'vue-meta'
     import ActivityCard from '../components/ActivityCard.vue'
     import { getItem, getList } from '../firebase'
     import Time from '../utils/time'
@@ -37,6 +38,27 @@
         },
         created: function() {
             this.loadData()
+        },
+        setup: function() {
+            // const { meta } = useMeta({
+            //     title: this.data ? this.data.title : content,
+            //     charset: 'utf8',
+            //     description: this.data ? this.data.meta.abstract : "Some description",
+            //     og: {
+            //         title: this.data ? this.data.title : content,
+            //         description: this.data ? this.data.meta.abstract : "Some description",
+            //         image: [
+            //             this.data ? this.data.images.src : "",
+            //         ]
+            //     },
+            //     twitter: {
+            //         title: this.data ? this.data.title : content,
+            //     },
+            //     htmlAttrs: {
+            //         lang: 'zh-tw',
+            //         amp: true
+            //     }
+            // });
         },
         watch: {
             id: function() {
