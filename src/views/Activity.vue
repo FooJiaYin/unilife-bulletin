@@ -113,14 +113,15 @@
 
                                 <div class="meta-block">
                                 </div>
-                                <!-- <div class="meta-block social-share">
-                                    <h4>關注度</h4>
-                                    <div
-                                        class="xs_social_share_widget xs_share_url  		main_content  wslu-style-1 wslu-share-box-shaped wslu-fill-colored wslu-none wslu-share-horizontal wslu-theme-font-no wslu-main_content">
-                                        <ul>
-                                        </ul>
+                                <div class="meta-block social-share">
+                                    <span><h4>分享：</h4></span>
+                                    <div class="row no-gutters text-center">
+                                        <div class="col social-icon"><i class="fab fa-line"></i></div>
+                                        <div class="col social-icon"><i class="fab fa-facebook"></i></div>
+                                        <div class="col social-icon"><i class="fab fa-instagram"></i></div>
+                                        <div class="col social-icon"><i class="fas fa-link"></i></div>
                                     </div>
-                                </div> -->
+                                </div>
 
                                 <div class="course-enroll">
                                     <form name="enroll-course" class="enroll-course" method="post"
