@@ -127,7 +127,7 @@
                         </div>
 
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 order-first order-lg-last">
                         <div class="course-sidebar">
                             <div class="course-single-info course-widget">
                                 <div class="course-intro">
@@ -153,7 +153,7 @@
                                     </div>
                                 </div>
 
-                                <div class="course-enroll">
+                                <div class="course-enroll justify-content-center">
                                     <form name="enroll-course" class="enroll-course" method="post"
                                         enctype="multipart/form-data">
                                         <input type="hidden" name="enroll-course" value="41" />
