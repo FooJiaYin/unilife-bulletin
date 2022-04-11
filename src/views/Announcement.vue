@@ -1,6 +1,6 @@
 <script>
     import AnnouncementCard from '../components/AnnouncementCard.vue'
-    import { getContent, getList } from '../firebase'
+    import { getItem, getList } from '../firebase'
     import Time from '../utils/time'
     export default {
         components: { AnnouncementCard },
@@ -13,7 +13,7 @@
         },
         methods: {
             loadData: async function() {
-                this.data = await getContent("announcement", this.id)
+                this.data = await getItem("articles", this.id)
                 this.data.publishedAt = Time(this.data.publishedAt.toDate()).format('LL')
                 this.items = []
                 const querySnapshot = await getList("announcement", this.data.tags[0], "publishedAt", 3);

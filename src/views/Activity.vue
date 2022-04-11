@@ -1,6 +1,6 @@
 <script>
     import ActivityCard from '../components/ActivityCard.vue'
-    import { getContent, getList } from '../firebase'
+    import { getItem, getList } from '../firebase'
     import Time from '../utils/time'
     export default {
         components: { ActivityCard },
@@ -13,7 +13,7 @@
         },
         methods: {
             loadData: async function() {
-                this.data = await getContent("activity", this.id)
+                this.data = await getItem("articles", this.id)
                 this.data.bulletinMeta.date = Time(this.data.bulletinMeta.date.toDate()).format('LL')
                 this.items = []
                 const querySnapshot = await getList("activity", this.data.tags[0], 'bulletinMeta.popularity', 3);
