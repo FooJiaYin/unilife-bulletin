@@ -90,7 +90,7 @@
     <div id="home"
         class="archive post-type-archive post-type-archive-lp_course courselog-child learnpress learnpress-page sidebar-active elementor-default elementor-kit-8">
 
-        <Banner :title="community.name" />
+        <Banner :title="community.name" :community="community" />
 
         <div id="main-content" class="main-container archive-course-container archive-course-standard" role="main">
             <div class="tranding-course-slider">

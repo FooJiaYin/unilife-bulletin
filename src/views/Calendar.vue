@@ -50,7 +50,7 @@ export default {
 </script>
 
 <template>
-  <Banner title="活動行事曆" />
+  <Banner title="活動行事曆" :community="community" />
   <div class="text-center section container">
     <v-calendar
       class="custom-calendar max-w-full"

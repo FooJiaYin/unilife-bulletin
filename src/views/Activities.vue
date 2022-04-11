@@ -87,7 +87,7 @@
 </script>
 
 <template>
-    <Banner title="所有活動" />
+    <Banner title="所有活動" :community="community" />
     <div id="main-content" class="main-container archive-course-container archive-course-standard" role="main">
         <div class="archive-course-filter archive-course-standard mb-60">
             <div class="container-fluid">

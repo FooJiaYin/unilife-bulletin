@@ -1,11 +1,11 @@
 <script>
 export default {
-  props: ['title', 'city'],
+  props: ['title', 'community'],
 }
 </script>
 
 <template>
-    <div class="banner-area banner-bg">
+    <div class="banner-area banner-bg" :style="{backgroundImage: 'url('+ community.backgroundImage +')'}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -17,10 +17,3 @@ export default {
         </div>
     </div>
 </template>
-
-<style>
-    .banner-area.banner-bg {
-        /* background-image: url(../assets/images/banner/taipei.jpg); */
-        background-image: url(http://i.imgur.com/C7uD6QY.jpg);
-    }
-</style>
