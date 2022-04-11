@@ -59,7 +59,7 @@
 </script>
 
 <template>
-    <Banner title="所有公告" :community="community" />
+    <Banner :title="tag? tag : `所有公告`" :community="community" />
     <div id="announcements" class="courselog-archive-events">
         <div class="container">
             <div class="row etn-event-wrapper">
