@@ -8,12 +8,14 @@
         data: function() {
             return {
                 data: {},
+				bulletinMeta: {},
                 items: [],
             }
         },
         methods: {
             loadData: async function() {
                 this.data = await getItem("articles", this.id)
+				this.bulletinMeta = this.data.bulletinMeta
                 this.data.publishedAt = Time(this.data.publishedAt.toDate()).format('LL')
                 this.items = []
                 const querySnapshot = await getList(
@@ -56,7 +58,7 @@
             <div class="etn-row">
                 <div class="etn-col-lg-8">
                     <div class="etn-event-single-content-wrap">
-                    <h2 class="mb-5">{{data.title}}</h2>
+                    	<h2 class="mb-5">{{data.title}}</h2>
                         <div v-if="data.images && data.images.src" class="etn-single-event-media">
                             <img :src="data.images.src">
                         </div>
@@ -78,10 +80,10 @@
                         <div class="etn-event-meta-info etn-widget">
                             <ul>
                                 <li><span>發布日期：</span>{{ data.publishedAt }}</li>
-                                <li><span>發布單位：</span>{{ data.bulletinMeta.organization }}</li>
+                                <li><span>發布單位：</span>{{ bulletinMeta.organization }}</li>
                             </ul>
                         </div>
-                        <!-- <div class="etn-widget etn-event-organizers">
+                        <div class="etn-widget etn-event-organizers">
                             <h4 class="etn-widget-title etn-title">
                                 附件
                             </h4>

@@ -8,13 +8,18 @@
         data: function() {
             return {
                 data: {},
+                bulletinMeta: {},
                 items: [],
             }
         },
         methods: {
             loadData: async function() {
                 this.data = await getItem("articles", this.id)
-                this.data.bulletinMeta.date = Time(this.data.bulletinMeta.date.toDate()).format('LL')
+                this.bulletinMeta = this.data.bulletinMeta
+                this.data.metaAbstract = this.data.meta.abstract
+                this.data.imageSrc = this.data.images.src
+                this.data.tag = this.data.tags[0]
+                this.bulletinMeta.date = Time(this.data.bulletinMeta.date.toDate()).format('LL')
                 this.items = []
                 const querySnapshot = await getList(
                     "activity", 
@@ -42,6 +47,9 @@
 </script>
 
 <template>
+    <metainfo>
+        <template v-slot:title="{ content }">{{ data ? `${data.title} | ${community.name}公佈欄` : content }}</template>
+    </metainfo>
     <div class="lp-archive-courses">
         <div class="banner banner-course">
             <div class="container">
@@ -60,18 +68,18 @@
                                 <router-link v-for="tag in data.tags" :to="`/${data.community}/activities/tag/${tag}`" :key="tag">{{ tag }}</router-link>
                             </div>
                             <h2 class="banner-title">{{ data.title }}</h2>
-                            <p class="course-intro">{{ data.meta.abstract }}</p>
+                            <p class="course-intro">{{ data.metaAbstract }}</p>
 
                             <ul class="header-meta list-unstyled">
-                                <li><i class="fas fa-map-marker-alt"></i>{{ data.bulletinMeta.zone }}</li>
-                                <li><i class="fas fa-user"></i>{{ data.bulletinMeta.organization }} 主辦</li>
+                                <li><i class="fas fa-map-marker-alt"></i>{{ bulletinMeta.zone }}</li>
+                                <li><i class="fas fa-user"></i>{{ bulletinMeta.organization }} 主辦</li>
                             </ul>
                         </div>
                     </div><!-- ./col -->
                     <div class="col-lg-6">
                         <div class="feature-image">
                             <div class="thumbnail">
-                                <img :src="data.images.src" alt="course thumbnail">
+                                <img :src="data.imageSrc" alt="course thumbnail">
                             </div>
                         </div>
                     </div><!-- ./col -->
@@ -103,10 +111,10 @@
                                 <div class="course-intro">
 
                                     <ul>
-                                        <li> <i class="fas fa-calendar-alt"></i>日期<span>{{ data.bulletinMeta.date }}</span></li>
-                                        <li> <i class="fas fa-map-marker-alt"></i>地點<span class="ellipsis">{{ data.bulletinMeta.address }}</span></li>
-                                        <li> <i class="fas fa-user"></i>主辦單位<span>{{ data.bulletinMeta.organization }}</span></li>
-                                        <li> <i class="fas fa-fire"></i>關注度<span>{{ data.bulletinMeta.popularity }}</span></li>
+                                        <li> <i class="fas fa-calendar-alt"></i>日期<span>{{ bulletinMeta.date }}</span></li>
+                                        <li> <i class="fas fa-map-marker-alt"></i>地點<span class="ellipsis">{{ bulletinMeta.address }}</span></li>
+                                        <li> <i class="fas fa-user"></i>主辦單位<span>{{ bulletinMeta.organization }}</span></li>
+                                        <li> <i class="fas fa-fire"></i>關注度<span>{{ bulletinMeta.popularity }}</span></li>
                                     </ul>
 
                                 </div>
@@ -128,13 +136,13 @@
                                         enctype="multipart/form-data">
                                         <input type="hidden" name="enroll-course" value="41" />
                                         <div class="row">
-                                            <div class="col">
-                                                <a :href="data.bulletinMeta.registrationLink" target="_blank">
+                                            <div class="col mb-3">
+                                                <a :href="bulletinMeta.registrationLink" target="_blank">
                                                     <div class="lp-button button button-enroll-course text-center">活動網頁</div>
                                                 </a>
                                             </div>
-                                            <div class="col">
-                                                <a :href="data.bulletinMeta.calendarLink" target="_blank">
+                                            <div class="col mb-3">
+                                                <a :href="bulletinMeta.calendarLink" target="_blank">
                                                     <div class="lp-button button button-enroll-course text-center">加入行事曆</div>
                                                 </a>
                                             </div>
@@ -155,7 +163,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="course-related">
-                            <h3 class="ts-title"> 更多熱門{{data.tags[0]}}... </h3>
+                            <h3 class="ts-title"> 更多熱門{{data.tag}}... </h3>
                             <div class="courselog-related-course related-course">
                                 <div class="row">
                                     <div class="col-lg-4" v-for="item in items"  :key="item.id">
@@ -194,5 +202,9 @@
 
 .meta-list > * {
     margin-right: 12px;
+}
+
+.social-icon {
+    font-size: 2rem;
 }
 </style>
