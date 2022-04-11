@@ -34,6 +34,17 @@
                     item.id = doc.id
                     this.items.push(item)
                 });
+            },
+            share: function() {
+                navigator.share({
+                    title: this.data.title,
+                    text: this.data.meta.abstract,
+                    url: this.data.meta.url,
+                })
+            },
+            copy: function() {
+                navigator.clipboard.writeText(`${this.data.title} | ${this.community.name}活動公佈欄\r\nhttps://bulletin.unilife.cc/${this.data.community}/activity/${this.data.id}`)
+                alert("已複製連結")
             }
         },
         created: function() {
@@ -146,10 +157,28 @@
                                 <div class="meta-block social-share">
                                     <span><h4>分享：</h4></span>
                                     <div class="row no-gutters text-center">
-                                        <div class="col social-icon"><i class="fab fa-line"></i></div>
-                                        <div class="col social-icon"><i class="fab fa-facebook"></i></div>
-                                        <div class="col social-icon"><i class="fab fa-instagram"></i></div>
-                                        <div class="col social-icon"><i class="fas fa-link"></i></div>
+                                        <div class="col social-icon">
+                                            <a :href="`https://lineit.line.me/share/ui?url=` + encodeURI(`https://bulletin.unilife.cc/${data.community}/activity/${data.id}`) + `&text=` + encodeURI(`${data.title} | ${community.name}活動公佈欄`)" target="_blank">
+                                                <i class="fab fa-line"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col social-icon">
+                                            <!-- <div class="fb-share-button" :data-href="`https://bulletin.unilife.cc/${data.community}/activity/${data.id}`"> -->
+                                                <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=` + encodeURI(`https://bulletin.unilife.cc/${data.community}/activity/${data.id}`) + `&amp;src=sdkpreparse`" class="fb-xfbml-parse-ignore">
+                                                    <i class="fab fa-facebook"></i>
+                                                </a>
+                                            <!-- </div> -->
+                                        </div>
+                                        <div class="col social-icon">
+                                            <a href="javascript:void(0)" :onclick="() => copy()">
+                                                <i class="fas fa-link"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col social-icon">
+                                            <a href="javascript:void(0)" :onclick="() => share()">
+                                                <i class="fas fa-share-alt"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
 
