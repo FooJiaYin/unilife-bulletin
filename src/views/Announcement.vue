@@ -86,8 +86,11 @@
                                 附件
                             </h4>
                             <div class="etn-organaizer-item">
+                                <div v-for="file in bulletinMeta.attachments" class="etn-organizer-email" :key="file.title">
+                                    <a v-bind:href="file.src" target="_blank">{{ file.title }}</a>
+                                </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
 
                 </div>
