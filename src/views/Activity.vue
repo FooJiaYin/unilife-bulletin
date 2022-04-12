@@ -21,6 +21,10 @@
                 this.data.imageSrc = this.data.images.src
                 this.data.tag = this.data.tags[0]
                 this.bulletinMeta.date = Time(this.data.bulletinMeta.date.toDate()).format('LL')
+                if (this.bulletinMeta.endDate) {
+                    this.bulletinMeta.endDate = Time(this.data.bulletinMeta.endDate.toDate()).format('M月 D日')
+                    this.bulletinMeta.date = `${this.bulletinMeta.date} 至 ${this.bulletinMeta.endDate}`
+                }
                 this.items = []
                 const querySnapshot = await getList(
                     "activity", 
@@ -144,10 +148,30 @@
                                 <div class="course-intro">
 
                                     <ul>
-                                        <li> <i class="fas fa-calendar-alt"></i>日期<span>{{ bulletinMeta.date }}</span></li>
-                                        <li> <i class="fas fa-map-marker-alt"></i>地點<span class="ellipsis">{{ bulletinMeta.address }}</span></li>
-                                        <li> <i class="fas fa-user"></i>主辦單位<span>{{ bulletinMeta.organization }}</span></li>
-                                        <li> <i class="fas fa-fire"></i>關注度<span>{{ bulletinMeta.popularity }}</span></li>
+                                        <li>
+                                            <div class="row"> 
+                                                <div class="col-auto flex-shrink-0"><i class="fas fa-calendar-alt"></i>日期</div>
+                                                <div class="col flex-shrink-2 text-right">{{ bulletinMeta.date }}</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row"> 
+                                                <div class="col-auto flex-shrink-0"><i class="fas fa-map-marker-alt"></i>地點</div>
+                                                <div class="col flex-shrink-2 text-right">{{ bulletinMeta.address }}</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row"> 
+                                                <div class="col-auto flex-shrink-0"><i class="fas fa-user"></i>主辦單位</div>
+                                                <div class="col flex-shrink-2 text-right">{{ bulletinMeta.organization }}</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row"> 
+                                                <div class="col-auto flex-shrink-0"><i class="fas fa-fire"></i>關注度</div>
+                                                <div class="col flex-shrink-2 text-right">{{ bulletinMeta.popularity }}</div>
+                                            </div>
+                                        </li>
                                     </ul>
 
                                 </div>

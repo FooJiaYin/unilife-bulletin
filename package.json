@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "deploy": "vite build && firebase deploy"
+    "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
     "firebase": "^9.6.4",
