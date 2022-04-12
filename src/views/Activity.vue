@@ -1,10 +1,11 @@
 <script>
     import { useMeta } from 'vue-meta'
     import ActivityCard from '../components/ActivityCard.vue'
+    import ShareButton from '../components/ShareButton.vue'
     import { getItem, getList } from '../firebase'
     import Time from '../utils/time'
     export default {
-        components: { ActivityCard },
+        components: { ActivityCard, ShareButton },
         props: ['id', 'community'],
         data: function() {
             return {
@@ -16,6 +17,7 @@
         methods: {
             loadData: async function() {
                 this.data = await getItem("articles", this.id)
+                this.data.url = `https://bulletin.unilife.cc/${this.data.community}/activity/${this.data.id}`
                 this.bulletinMeta = this.data.bulletinMeta
                 this.data.metaAbstract = this.data.meta.abstract
                 this.data.imageSrc = this.data.images.src
@@ -181,28 +183,10 @@
                                 <div class="meta-block social-share">
                                     <span><h4>分享：</h4></span>
                                     <div class="row no-gutters text-center">
-                                        <div class="col social-icon">
-                                            <a :href="`https://lineit.line.me/share/ui?url=` + encodeURI(`https://bulletin.unilife.cc/${data.community}/activity/${data.id}`) + `&text=` + encodeURI(`${data.title} | ${community.name}活動公佈欄`)" target="_blank">
-                                                <i class="fab fa-line"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col social-icon">
-                                            <!-- <div class="fb-share-button" :data-href="`https://bulletin.unilife.cc/${data.community}/activity/${data.id}`"> -->
-                                                <a target="_blank" :href="`https://www.facebook.com/sharer/sharer.php?u=` + encodeURI(`https://bulletin.unilife.cc/${data.community}/activity/${data.id}`) + `&amp;src=sdkpreparse`" class="fb-xfbml-parse-ignore">
-                                                    <i class="fab fa-facebook"></i>
-                                                </a>
-                                            <!-- </div> -->
-                                        </div>
-                                        <div class="col social-icon">
-                                            <a href="javascript:void(0)" :onclick="() => copy()">
-                                                <i class="fas fa-link"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col social-icon">
-                                            <a href="javascript:void(0)" :onclick="() => share()">
-                                                <i class="fas fa-share-alt"></i>
-                                            </a>
-                                        </div>
+                                        <ShareButton type="line" class="col" :data="data" />
+                                        <ShareButton type="facebook" class="col" :data="data" />
+                                        <ShareButton type="copy" class="col" :data="data" />
+                                        <ShareButton type="share" class="col" :data="data" />
                                     </div>
                                 </div>
 
