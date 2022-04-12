@@ -1,6 +1,8 @@
 <script>
     import Time from '../utils/time'
+    import ActivityTags from '../components/ActivityTags.vue'
     export default {
+        components: { ActivityTags },
         props: ['data'],
         methods: {
             loadData: async function() {
@@ -22,9 +24,7 @@
                     <!-- <img class="img-fluid" src="" alt="Sample course"> -->
                     <img class="img-fluid entered" :src="data.images.src" :alt="data.title">
                 </router-link>
-                <div class="meta-list">
-                    <router-link v-for="tag in data.tags" :to="`/${data.community}/activities/tag/${tag}`" :key="tag">{{ tag }}</router-link>
-                </div><!-- ./meta-list -->
+                <ActivityTags :data="data" />
             </div>
 
             <div class="content-area">
