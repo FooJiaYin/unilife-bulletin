@@ -1,11 +1,12 @@
 <script>
     import { useMeta } from 'vue-meta'
+    import Breadcumb from '../components/Breadcumb.vue'
     import ActivityCard from '../components/ActivityCard.vue'
     import ShareButton from '../components/ShareButton.vue'
     import { getItem, getList } from '../firebase'
     import Time from '../utils/time'
     export default {
-        components: { ActivityCard, ShareButton },
+        components: { Breadcumb, ActivityCard, ShareButton },
         props: ['id', 'community'],
         data: function() {
             return {
@@ -95,14 +96,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="content-area">
-                            <div class="course-breadcumb">
-                                <ol class="breadcrumb" data-wow-duration="2s">
-                                    <li><router-link :to="`/${data.community}`">首頁</router-link></li> <i
-                                        class="fas fa-chevron-right"></i>
-                                    <li><router-link :to="`/${data.community}/announcements/tag/${tag}`">活動</router-link></li> <i class='fas fa-chevron-right'></i>
-                                    <li class="ellipsis">{{ data.title }}</li>
-                                </ol>
-                            </div>
+                            <Breadcumb :middle="{'活動': `/${data.community}/activities`}" :data="data" />
                             <div class="meta-list">
                                 <router-link v-for="tag in data.tags" :to="`/${data.community}/activities/tag/${tag}`" :key="tag">{{ tag }}</router-link>
                             </div>

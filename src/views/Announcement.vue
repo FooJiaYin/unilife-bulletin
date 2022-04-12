@@ -1,9 +1,10 @@
 <script>
+    import Breadcumb from '../components/Breadcumb.vue'
     import AnnouncementCard from '../components/AnnouncementCard.vue'
     import { getItem, getList } from '../firebase'
     import Time from '../utils/time'
     export default {
-        components: { AnnouncementCard },
+        components: { Breadcumb, AnnouncementCard },
         props: ['id'],
         data: function() {
             return {
@@ -47,14 +48,7 @@
 <template>
     <div class="etn-event-single-wrap">
         <div class="etn-container">
-            <div class="course-breadcumb">
-                <ol class="breadcrumb" data-wow-duration="2s">
-                    <li><router-link :to="`/${data.community}`">首頁</router-link></li> <i
-                        class="fas fa-chevron-right"></i>
-                    <li><router-link :to="`/${data.community}/announcements`">公告</router-link></li> <i class='fas fa-chevron-right'></i>
-                    <li class="ellipsis">{{ data.title }}</li>
-                </ol>
-            </div>
+            <Breadcumb :middle="{'公告': `/${data.community}/announcements`}" :data="data" />
             <div class="etn-row">
                 <div class="etn-col-lg-8">
                     <div class="etn-event-single-content-wrap">
