@@ -12,7 +12,6 @@ dist-ssr
 # firebase
 .firebase
 .firebaserc
-firebase.*
 firestore.*
 storage.rules
 firebase-debug.log

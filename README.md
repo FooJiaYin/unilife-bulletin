@@ -1,27 +1,23 @@
 # 活動公佈欄 UniLife Bulletin
 
+## Example 
+Website: https://bulletin.unilife.cc/hualienCounty/
+
+Share link: https://bulletin.unilife.cc/hualienCounty/activity/3sf5pJpOe20PV1VzCYsS
+
 ## Setup
 ```
 firebase init
 yarn
 ```
-In `firebase.json`:
-```json
-{
-  "hosting": {
-    "site": "bulletin-unilife",
-    "public": "dist",
-    ...
-```
-
 ## Build
 ```
 yarn build
 ```
 
-## Deploy
+## Deployment
 ```
-firebase deploy
+yarn deploy
 ```
 
 ## Development
