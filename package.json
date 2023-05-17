@@ -2,8 +2,7 @@
   "name": "unilife-bulletin",
   "version": "0.1.0",
   "scripts": {
-    "init": "firebase login",
-    "target": "firebase target",
+    "init": "firebase login && firebase use --add",
     "dev": "vite",
     "build": "vite build && vite preview",
     "serve": "vite preview",
