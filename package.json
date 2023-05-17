@@ -2,17 +2,20 @@
   "name": "unilife-bulletin",
   "version": "0.1.0",
   "scripts": {
+    "init": "firebase login",
+    "target": "firebase target",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite preview",
     "serve": "vite preview",
     "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
+    "@popperjs/core": "2.4.0",
     "firebase": "^9.6.4",
     "moment": "^2.29.1",
     "swiper": "^7.4.1",
-    "v-calendar": "^3.0.0-alpha.8",
-    "vue": "^3.2.25",
+    "v-calendar": "3.0.0-alpha.8",
+    "vue": "3.2.25",
     "vue-meta": "^3.0.0-alpha.10",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
@@ -20,6 +23,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
     "@vue/cli-plugin-router": "~4.5.0",
+    "firebase-tools": "^12.0.1",
     "vite": "^2.7.2"
   }
 }
