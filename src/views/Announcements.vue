@@ -86,9 +86,9 @@
                                         <router-link :to="`/${community.id}/announcements/tag/${_tag}`">{{ _tag.replace("important", "重要公告") }}</router-link>
                                     </li>
                                 </ul>
-                                <div class="gradient_shade_area"></div>
+                                <!-- <div class="gradient_shade_area"></div> -->
                             </div>
-                            <div class="show-more">顯示更多<i class="fas fa-arrow-down"></i></div>
+                            <!-- <div class="show-more">顯示更多<i class="fas fa-arrow-down"></i></div> -->
                         </div>
                     </div> 
                 </div>

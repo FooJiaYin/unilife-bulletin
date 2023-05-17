@@ -67,21 +67,21 @@ jQuery(document).ready(function($) {
             })
 
 
-            $(this).attr('data-height', data_height);
-            $(this).attr('items-height', total_items_height);
+            // $(this).attr('data-height', data_height);
+            // $(this).attr('items-height', total_items_height);
 
             let data_attr_height = $(this).attr('data-height'),
                 data_attr_items_height = $(this).attr('items-height');
 
-            if (data_attr_height > data_attr_items_height) {
-                $(this).css({"height": data_attr_items_height});
+            // if (data_attr_height > data_attr_items_height) {
+            //     $(this).css({"height": data_attr_items_height});
 
-                $(this).parents('.show-more-list-wrap').find('.show-more').on('click', function () {
-                    $(this).parents('.show-more-list-wrap').find('.gradient_shade_area').hide();
-                    $(this).hide();
-                    $(this).parents('.show-more-list-wrap').find('.show-more-list').css('height', 'auto');
-                })
-            }
+            //     $(this).parents('.show-more-list-wrap').find('.show-more').on('click', function () {
+            //         $(this).parents('.show-more-list-wrap').find('.gradient_shade_area').hide();
+            //         $(this).hide();
+            //         $(this).parents('.show-more-list-wrap').find('.show-more-list').css('height', 'auto');
+            //     })
+            // }
         })
     }
 });

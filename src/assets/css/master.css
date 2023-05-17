@@ -3010,7 +3010,7 @@ form[name=search-course] .search-course-button {
 }
 .show-more-list-wrap .show-more-list {
   overflow: hidden;
-  height: 230px;
+  /* height: 230px; */
   -webkit-transition: all ease 0.4s;
   -o-transition: all ease 0.4s;
   transition: all ease 0.4s;
@@ -6833,7 +6833,7 @@ body.course-item-popup #learn-press-content-item .content-item-wrap {
   }
   .course-list-widget-wraper .course-list-widget {
     overflow: hidden;
-    height: 230px;
+    /* height: 230px; */
     -webkit-transition: all ease 0.4s;
     -o-transition: all ease 0.4s;
     transition: all ease 0.4s;
