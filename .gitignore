@@ -15,8 +15,8 @@ dist-ssr
 firestore.*
 storage.rules
 firebase-debug.log
-src/config.js
 functions/
+.env
 
 # vscode
 .vscode
