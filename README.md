@@ -1,6 +1,6 @@
 # 活動公佈欄 UniLife Bulletin
 
-## Example 
+## Demo 
 Website: https://bulletin.unilife.cc/hualien/
 
 Share link: https://bulletin.unilife.cc/hualien/activity/3sf5pJpOe20PV1VzCYsS
@@ -18,14 +18,14 @@ Share link: https://bulletin.unilife.cc/hualien/activity/3sf5pJpOe20PV1VzCYsS
     
 3. Create a `.env` file in the root directory and fill in the following information:
     ```
-    VITE_FIREBASE_API_KEY = {your api key}
-    VITE_FIREBASE_AUTH_DOMAIN = {your auth domain}
-    VITE_FIREBASE_DATABASE_URL = {your database url}
-    VITE_FIREBASE_PROJECT_ID = {your project id}
-    VITE_FIREBASE_STORAGE_BUCKET = {your storage bucket}
-    VITE_FIREBASE_MESSAGING_SENDER_ID = {your messaging sender id}
-    VITE_FIREBASE_APP_ID = {your app id}
-    VITE_FIREBASE_MEASUREMENT_ID = {your measurement id}
+    FIREBASE_API_KEY = {your api key}
+    FIREBASE_AUTH_DOMAIN = {your auth domain}
+    FIREBASE_DATABASE_URL = {your database url}
+    FIREBASE_PROJECT_ID = {your project id}
+    FIREBASE_STORAGE_BUCKET = {your storage bucket}
+    FIREBASE_MESSAGING_SENDER_ID = {your messaging sender id}
+    FIREBASE_APP_ID = {your app id}
+    FIREBASE_MEASUREMENT_ID = {your measurement id}
     ```
 ## Build
 ```
