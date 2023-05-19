@@ -10,12 +10,6 @@ dist-ssr
 *.local
 
 # firebase
-.firebase
-.firebaserc
-firestore.*
-storage.rules
-firebase-debug.log
-functions/
 .env
 
 # vscode
