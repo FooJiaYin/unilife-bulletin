@@ -21,12 +21,12 @@
                     <div class="content-top">
                         <ul class="list-unstyled">
                             <li v-for="tag in data.tags" :key="tag"><i class="fas fa-tag"></i>
-                                <router-link :to="'/announcements/tag/' + tag">{{ tag }}</router-link>
+                                <router-link :to="`/${data.community}/announcements/tag/${tag}`">{{ tag.replace("important", "重要公告") }}</router-link>
                             </li>
                         </ul>
                     </div>
                     <h3 class="etn-title etn-event-title">
-                        <router-link :to="'/announcement/' + data.id">
+                        <router-link :to="`/${data.community}/announcement/${data.id}`">
                             {{ data.title }}
                         </router-link>
                     </h3>
@@ -40,7 +40,7 @@
                             <span><i class="fas fa-user"></i>{{ data.bulletinMeta.organization }}</span>
                         </div>
                         <div class="event-readmore">
-                            <router-link :to="'/announcement/' + data.id">
+                            <router-link :to="`/${data.community}/announcement/${data.id}`">
                                 <i class="fas fa-arrow-right"></i>
                             </router-link>
                         </div>

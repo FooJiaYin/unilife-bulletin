@@ -1,22 +1,31 @@
 <script>
+    import Breadcumb from '../components/Breadcumb.vue'
     import AnnouncementCard from '../components/AnnouncementCard.vue'
-    import { getContent, getList } from '../firebase'
+    import { getItem, getList } from '../firebase'
     import Time from '../utils/time'
     export default {
-        components: { AnnouncementCard },
+        components: { Breadcumb, AnnouncementCard },
         props: ['id'],
         data: function() {
             return {
                 data: {},
+				bulletinMeta: {},
                 items: [],
             }
         },
         methods: {
             loadData: async function() {
-                this.data = await getContent("announcement", this.id)
+                this.data = await getItem("articles", this.id)
+				this.bulletinMeta = this.data.bulletinMeta
                 this.data.publishedAt = Time(this.data.publishedAt.toDate()).format('LL')
                 this.items = []
-                const querySnapshot = await getList("announcement", this.data.tags[0], "publishedAt", 3);
+                const querySnapshot = await getList(
+                    "announcement", 
+                    this.data.community,
+                    this.data.tags[0], 
+                    "publishedAt", 
+                    3
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     console.log(item)
@@ -39,18 +48,11 @@
 <template>
     <div class="etn-event-single-wrap">
         <div class="etn-container">
-            <div class="course-breadcumb">
-                <ol class="breadcrumb" data-wow-duration="2s">
-                    <li><router-link to="/">首頁</router-link></li> <i
-                        class="fas fa-chevron-right"></i>
-                    <li><router-link to="/announcements">公告</router-link></li> <i class='fas fa-chevron-right'></i>
-                    <li class="ellipsis">{{ data.title }}</li>
-                </ol>
-            </div>
+            <Breadcumb :middle="{'公告': `/${data.community}/announcements`}" :data="data" />
             <div class="etn-row">
                 <div class="etn-col-lg-8">
                     <div class="etn-event-single-content-wrap">
-                    <h2 class="mb-5">{{data.title}}</h2>
+                    	<h2 class="mb-5">{{data.title}}</h2>
                         <div v-if="data.images && data.images.src" class="etn-single-event-media">
                             <img :src="data.images.src">
                         </div>
@@ -60,8 +62,8 @@
 
                         <div class="etn-event-tag-list">
                             <h4 class="etn-tags-title">分類</h4>
-                            <router-link v-for="tag in data.tags" :key="tag" :to="'/announcements/tag/' + tag">
-                                {{ tag }}
+                            <router-link v-for="tag in data.tags" :key="tag" :to="`/${data.community}/announcements/tag/${tag}`">
+                                {{ tag.replace("important", "重要公告") }}
                             </router-link>
                         </div>
                     </div>
@@ -72,16 +74,19 @@
                         <div class="etn-event-meta-info etn-widget">
                             <ul>
                                 <li><span>發布日期：</span>{{ data.publishedAt }}</li>
-                                <li><span>發布單位：</span>{{ data.bulletinMeta.organization }}</li>
+                                <li><span>發布單位：</span>{{ bulletinMeta.organization }}</li>
                             </ul>
                         </div>
-                        <!-- <div class="etn-widget etn-event-organizers">
+                        <div class="etn-widget etn-event-organizers">
                             <h4 class="etn-widget-title etn-title">
                                 附件
                             </h4>
                             <div class="etn-organaizer-item">
+                                <div v-for="file in bulletinMeta.attachments" class="etn-organizer-email" :key="file.title">
+                                    <a v-bind:href="file.src" target="_blank">{{ file.title }}</a>
+                                </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
 
                 </div>

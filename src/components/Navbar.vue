@@ -1,3 +1,9 @@
+<script>
+export default {
+    props: ['community'],
+}
+</script>
+
 <template>
     <!-- header nav start-->
     <div class="header-wrapper bg-white sticky-top">
@@ -8,11 +14,12 @@
             <div class="navbar-container">
                 <div class="container">
                     <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
-                        <footer-link to="/" class="navbar-brand">
-                            <img src="../assets/images/logo.png"
+                        <router-link :to="`/${community.id}`" class="navbar-brand">
+                            <!-- <img src="../assets/images/logo.png"
                                 srcset="../assets/images/logo.png 1x"
-                                alt="UniLife">
-                        </footer-link>
+                                alt="UniLife"> -->
+                            <h4 class="pt-3 text-gray">{{ community.name }}活動公佈欄</h4>
+                        </router-link>
     
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-nav"
                             aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,22 +48,19 @@
                         <div id="primary-nav" class="collapse navbar-collapse">
                             <ul id="main-menu" class="navbar-nav  main-menu">
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item">
-                                    <router-link to="/">首頁</router-link>
+                                    <router-link :to="`/${community.id}`">首頁</router-link>
                                 </li>
                                 <li id="menu-item"
                                     class="menu-item menu-item-type-post_type menu-item-object-page nav-item">
-                                    <!-- <a href="activities.html" class="nav-link">所有活動</a> -->
-                                    <router-link to="/activities" class="nav-link">所有活動</router-link>
+                                    <router-link :to="`/${community.id}/activities`" class="nav-link">所有活動</router-link>
                                 </li>
                                 <li id="menu-item"
                                     class="menu-item menu-item-type-post_type menu-item-object-page nav-item">
-                                    <!-- <a href="https://34.176.147.251/lp-courses-2/" class="nav-link">活動行事曆</a> -->
-                                    <router-link to="/calendar" class="nav-link">活動行事曆</router-link>
+                                    <router-link :to="`/${community.id}/calendar`" class="nav-link">活動行事曆</router-link>
                                 </li>
                                 <li id="menu-item"
                                     class="menu-item menu-item-type-post_type menu-item-object-page nav-item">
-                                    <!-- <a href="announcements.html" class="nav-link">重要公告</a> -->
-                                    <router-link to="/announcements" class="nav-link">重要公告</router-link>
+                                    <router-link :to="`/${community.id}/announcements`" class="nav-link">重要公告</router-link>
                                 </li>
                             </ul>
                         </div> <!-- collapse end -->

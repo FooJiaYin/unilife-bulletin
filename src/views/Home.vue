@@ -11,6 +11,7 @@
     
     export default {
         components: { Banner, ActivityCard, AnnouncementCard, Swiper, SwiperSlide }, 
+        props: ['community'],
         data: function() {
             return {
                 activitiesFeatured: [],
@@ -21,20 +22,38 @@
         methods: {
             loadData: async function() {
                 this.items = []
-                let querySnapshot = await getList("announcement", undefined, 'publishedAt', 3);
+                let querySnapshot = await getList(
+                    "announcement", 
+                    this.community.id,
+                    undefined, 
+                    'publishedAt', 
+                    3
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     item.id = doc.id
                     this.announcements.push(item)
                 });
-                querySnapshot = await getList("activity", undefined, 'publishedAt', 6);
+                querySnapshot = await getList(
+                    "activity", 
+                    this.community.id,
+                    undefined, 
+                    'publishedAt', 
+                    6
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     console.log(item)
                     item.id = doc.id
                     this.activitiesFeatured.push(item)
                 });
-                querySnapshot = await getList("activity", undefined, 'bulletinMeta.popularity', 6);
+                querySnapshot = await getList(
+                    "activity", 
+                    this.community.id,
+                    undefined, 
+                    'bulletinMeta.popularity', 
+                    6
+                );
                 querySnapshot.forEach((doc) => {
                     let item = doc.data()
                     console.log(item)
@@ -59,6 +78,11 @@
                 modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
             }
         },
+        watch: {
+            community: function() {
+                this.loadData()
+            }
+        }
     }
 </script>
 
@@ -66,7 +90,7 @@
     <div id="home"
         class="archive post-type-archive post-type-archive-lp_course courselog-child learnpress learnpress-page sidebar-active elementor-default elementor-kit-8">
 
-        <Banner title="新竹縣" />
+        <Banner :title="community.name" :community="community" />
 
         <div id="main-content" class="main-container archive-course-container archive-course-standard" role="main">
             <div class="tranding-course-slider">

@@ -56,18 +56,7 @@ body {
 .ticket-btn.btn:hover,
 .btn-primary,
 .BackTo,
-.woocommerce ul.products li.product .button,
-.woocommerce ul.products li.product .added_to_cart,
-.woocommerce nav.woocommerce-pagination ul li a:focus,
-.woocommerce nav.woocommerce-pagination ul li a:hover,
-.woocommerce nav.woocommerce-pagination ul li span.current,
-.woocommerce #respond input#submit.alt,
-.woocommerce a.button.alt,
-.woocommerce button.button.alt,
-.woocommerce input.button.alt,
 .sponsor-web-link a:hover i,
-.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
-.woocommerce span.onsale,
 #preloader,
 .header .navbar-container .navbar-light .main-menu>li>a:before,
 .tab-course-category ul li:before,
@@ -106,13 +95,7 @@ a.tutor-button,
 .courselog-learndash-course .ld-single-course .ld-course-footer .ld-course-price,
 .ld-related-course .ld-single-course .ld-course-footer .ld-course-price,
 .user-dashboard #learn-press-profile-nav .learn-press-tabs.tabs li.active>a,
-.user-dashboard #learn-press-profile-nav .learn-press-tabs.tabs li:hover>a,
-.woocommerce ul.products li.product .added_to_cart:hover,
-.woocommerce #respond input#submit.alt:hover,
-.woocommerce a.button.alt:hover,
-.woocommerce button.button.alt:hover,
-.woocommerce input.button.alt:hover,
-.woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
+.user-dashboard #learn-press-profile-nav .learn-press-tabs.tabs li:hover>a {
     background: #00AEBB;
 }
 
@@ -149,7 +132,6 @@ a.tutor-button,
 a:hover,
 .ts-course-category .single-course-category .course-category-title a:hover,
 .courselog-events .entry-header .entry-title a:hover,
-.woocommerce ul.products li.product .price,
 .footer-widget ul li a:hover,
 .ts-footer .footer-menu li a:hover,
 .courselog-course-latest h3.post-title a:hover,
@@ -173,8 +155,7 @@ a:hover,
 .user-dashboard .lp-profile-content table th a:hover,
 .user-dashboard .lp-profile-content .lp-list-table td a:hover,
 .user-dashboard .lp-profile-content .lp-list-table th a:hover,
-#learn-press-course-curriculum.course-curriculum ul.curriculum-sections .section-content .course-item .section-item-link:hover,
-.woocommerce ul.products li.product .woocommerce-loop-product__title:hover {
+#learn-press-course-curriculum.course-curriculum ul.curriculum-sections .section-content .course-item .section-item-link:hover {
     color: #00AEBB;
 }
 
